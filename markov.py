@@ -15,8 +15,6 @@ def open_and_read_file(file_path):
 
     return file_as_string
 
-#test = open_and_read_file("green-eggs.txt")
-
 
 def make_chains(text_string):
     """Take input text as string; return dictionary of Markov chains.
@@ -49,23 +47,22 @@ def make_chains(text_string):
     words = text_string.split()
     chains = {}
 
-    for i in range(len(words)):
-        if i == 0:
-            continue
+    # FOR BIGRAMS
+    # for i in range(len(words)):
+    #     if i == 0:
+    #         continue
         
-        word1 = words[i-1]
-        word2 = words[i]
-        if i == len(words) - 1:
-            following = None
-        else:
-            following = words[i+1]
+    #     word1 = words[i-1]
+    #     word2 = words[i]
+    #     if i == len(words) - 1:
+    #         following = None
+    #     else:
+    #         following = words[i+1]
 
-        chains[(word1, word2)] = chains.get((word1, word2), []) + [following]
+    #     chains[(word1, word2)] = chains.get((word1, word2), []) + [following]
     
 
     return chains
-
-# chains = make_chains(test)
 
 
 def make_text(chains):
@@ -102,8 +99,6 @@ def make_text(chains):
 
 
     return ' '.join(words)
-
-# the_thing = make_text(chains)
 
 # input_path = 'green-eggs.txt'
 input_path = "gettysburg.txt"
